@@ -8,7 +8,7 @@ declare interface IAddress extends mongoose.Document {
     district: string,
 
     timezone: string,
-    zip: number
+    zip: string,
     region: string,
 }
 
@@ -21,17 +21,17 @@ const AddressSchema = new mongoose.Schema({
     district: String,
 
     timezone: String,
-    zip: Number
+    zip: String,
 })
 
 declare interface IPostal extends mongoose.Document {
-    zip: number,
+    zip: string,
     regionType: string,
     federal: string,
 }
 
 const PostalSchema = new mongoose.Schema({
-    zip: Number,
+    zip: String,
     regionType: String,
     federal: String,
 });

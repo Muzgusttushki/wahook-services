@@ -1,14 +1,12 @@
-import { IsString, IsDefined } from "class-validator"
+import {IsString} from 'class-validator';
 
-class AnalyticsObject {
+export class AnalyticsObject {
     @IsString()
-    google: String
-
+    google: string;
     @IsString()
-    facebook: String
-
+    facebook: string;
     @IsString()
-    yandex: String
+    yandex: string;
+    @IsString()
+    vis: string;
 }
-
-export { AnalyticsObject }

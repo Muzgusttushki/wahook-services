@@ -15,43 +15,38 @@ class Browser {
 
     @IsString()
     version: String
-
-
 }
 
 class SheetObject {
     @ValidateNested()
-    @IsDefined()
     @Type(() => AnalyticsObject)
-    analytics: AnalyticsObject
+    analytics: AnalyticsObject;
 
     @ValidateNested()
-    @IsDefined()
     @Type(() => OS)
-    os: OS
+    os: OS;
 
     @ValidateNested()
-    @IsDefined()
     @Type(() => Browser)
-    browser: Browser
+    browser: Browser;
 
     @IsString()
-    product: String
+    vis: string;
 
-    @IsDefined()
-    source: String
+    @IsString()
+    product: string;
+
+    source: string;
+    utm: object;
 }
 
 class Event {
-    @IsDefined()
     @IsString()
     name: String
 
-    @IsDefined()
     @IsString()
     date: String
 
-    @IsDefined()
     @IsNumber()
     id: Number
 }
@@ -66,17 +61,14 @@ class Utm {
 
 class WidgetInitObject {
     @ValidateNested()
-    @IsDefined()
     @Type(() => AnalyticsObject)
     analytics: AnalyticsObject
 
     @ValidateNested()
-    @IsDefined()
     @Type(() => OS)
     os: OS
 
     @ValidateNested()
-    @IsDefined()
     @Type(() => Browser)
     browser: Browser
 
@@ -86,6 +78,9 @@ class WidgetInitObject {
     @ValidateNested()
     @Type(() => Utm)
     utm: Utm
+
+    @IsString()
+    url: String
 }
 
 class WidgetLazyObject {
@@ -100,15 +95,12 @@ class WidgetLazyObject {
 }
 
 class WidgetSeatsObject {
-    @IsDefined()
     @IsString()
     variant: String
 
-    @IsDefined()
     @IsNumber()
     price: Number
 
-    @IsDefined()
     @IsNumber()
     quantity: Number
 
@@ -129,8 +121,6 @@ class Ticket {
 
     @IsNumber()
     price: Number
-
-    @IsDefined()
     @IsNumber()
     quantity: Number
 
@@ -158,7 +148,6 @@ class WidgetConfirmObject {
     @IsString()
     payment: String
 
-    @IsDefined()
     @IsObject()
     buyer: {
         name: String,

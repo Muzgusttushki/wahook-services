@@ -8,13 +8,14 @@ async function bootstrap() {
     logger: new LoggerService('VIS')
   });
 
-  app.setGlobalPrefix('v1')
-  app.enableCors()
+  app.setGlobalPrefix('v1');
+  app.enableCors();
   app.useGlobalPipes(new ValidationPipe({
     skipMissingProperties: true,
-    transform: true
-  }))
-  const address = '192.168.0.23'
+    transform: true,
+  }));
+  const address = '192.168.0.23';
   await app.listen(3303, address);
 }
+
 bootstrap();

@@ -8,15 +8,16 @@ interface IWidget extends mongoose.Document {
     addressInfo: {
         city: string,
         country: string,
-        zip: number,
+        zip: string,
         timezone: string,
         region: string
     },
 
     analytics: {
         google: string,
-        yandex: String,
-        facebook: String
+        yandex: string,
+        facebook: string,
+        vis: string,
     },
 
     trash: {
@@ -31,6 +32,8 @@ interface IWidget extends mongoose.Document {
         promocode: String,
         variant: String
     }[],
+
+    url: string,
     tickets: {
         discount: {
             type: String,
@@ -81,11 +84,14 @@ const WidgetSchema = new mongoose.Schema({
     v1: Boolean,
     session: String,
     address: String,
+    url: String,
+    product: String,
+    isSheet: Boolean,
 
     addressInfo: {
         city: String,
         country: String,
-        zip: Number,
+        zip: String,
         timezone: String,
         region: String
     },
@@ -93,7 +99,8 @@ const WidgetSchema = new mongoose.Schema({
     analytics: {
         google: String,
         yandex: String,
-        facebook: String
+        facebook: String,
+        vis: String,
     },
 
     trash: Array<{

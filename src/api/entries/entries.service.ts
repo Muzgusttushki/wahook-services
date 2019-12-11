@@ -28,15 +28,17 @@ export class EntriesService {
     async sheet(sheet: SheetObject, address: String,
         source: String) {
 
-        await new this.sheetsSchema({
+        await new this.widgetSchema({
             address,
-            sourceDetails: sheet.source,
+            url: sheet.source,
             analytics: sheet.analytics,
             source,
             os: sheet.os,
             browser: sheet.browser,
             product: sheet.product,
-            date: new Date()
+            isSheet: true,
+            date: new Date(),
+            utm: sheet.utm,
         }).save().catch(resolve => {
             this.logger.error(resolve)
         })
@@ -173,6 +175,7 @@ export class EntriesService {
             address: address,
             source: source,
             addressInfo,
+            url: widget.url,
             status: 'WIDGET_OPEN',
             date: new Date()
         } as IWidget)
